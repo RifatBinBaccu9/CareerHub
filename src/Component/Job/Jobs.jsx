@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const Jobs = ({job}) => {
 
-    const {job_title,company_name,logo,job_type,remote_or_onsite,location,salary}=job;
+    const {id,job_title,company_name,logo,job_type,remote_or_onsite,location,salary}=job;
 
     return (
-        <div className='border rounded-md p-6'>
+        <div className='border rounded-md p-10'>
             <img src={logo} alt={company_name} />
             <h1>{job_title}</h1>
             <h4>{company_name}</h4>
@@ -21,7 +22,9 @@ const Jobs = ({job}) => {
                     <span> Salary:{salary}</span>
                 </div>
             </div>
-            <button className='btn'>View Details</button>
+           <Link to={`/job/${id}`}>
+           <button className='btn'>View Details</button>
+           </Link>
         </div>
     );
 };
