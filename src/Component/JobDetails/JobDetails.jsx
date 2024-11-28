@@ -4,6 +4,8 @@ import { MdDateRange } from "react-icons/md";
 import { MdLocationPin } from "react-icons/md";
 import { IoMailOutline } from "react-icons/io5";
 import { FaPhone } from "react-icons/fa";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const JobDetails = () => {
     const job=useLoaderData();
@@ -14,6 +16,7 @@ const JobDetails = () => {
     
     const {email,phone,address}=contact_information;
     
+    const toastify=()=> toast('It is Ok')
     return (
         <div className="flex gap-10 w-[85%] m-auto my-16">
             <div className="w-[60%] ">
@@ -40,6 +43,11 @@ const JobDetails = () => {
             <p className="flex gap-2 my-2"><FaPhone className='mt-1'/><span>Phone :{phone}</span> </p>
             <p className="flex gap-2 my-2"><IoMailOutline className='mt-1'/><span>Email :{email}</span> </p>
             <p className="flex gap-2 my-2"><MdLocationPin className='mt-1'/><span>Address :{address}</span> </p>
+
+            </div>
+            <div className="my-5">
+                <button onClick={toastify} className="btn w-full">Apply Now</button>
+                <ToastContainer />
             </div>
             </div>
         </div>
